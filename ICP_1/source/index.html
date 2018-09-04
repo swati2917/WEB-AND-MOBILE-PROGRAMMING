@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
+    <title>Rock, Paper, Scissors</title>
+
+    <style>
+       *{margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}::selection{background:#fb9fe5;text-shadow:none}a{color:#0088CC;text-decoration:none;outline:0}a:hover{color:#005580}a img{border:none}img{max-width:100%}html{font-size:100%}body{padding:5%;font:300 1.25em/1.6 monospace;background:#fff;color:#000;}h1{font-family:"Helvetica Neue",sans-serif;line-height:1;font-weight:300;margin-bottom:1em;}.game{padding:2em;background:#eee;}
+    </style>
+</head>
 <body>
 
-<!----span  with inline--->
-<p>
-    <span class="red-text" style="color:red">cloud </span>   <!----span  with inline element 1--->
-    <span class="orange-text" style="color:deeppink">web</span>  <!----span  with inline element 2--->
-    <span class="yellow-text" style="color:blueviolet">mobile </span>  <!----span  with inline element 3--->
-    <span class="green-text" style="color:yellow">development</span>  <!----span  with inline element 4--->
-</p>
+<h1>Rock, Paper, Scissors</h1>
 
+<div class="game">
 
-
-
-
-
-
-
-
-
-<!----HEADING--->
-
-<h1>GITHUB TUTORIAL</h1>
-
-<!----HEADING 2 (smaller than H1, H1 has the largest size)--->
-<h2>Web and Mobile Programming Repository</h2>
-
-<!----PARAGRAPHS--->
-<p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-    This tutorial teaches you GitHub essentials like repositories, branches,
-    commits, and Pull Requests. You’ll create your own Hello World repository and learn GitHub’s Pull Request workflow,
-    a popular way to create and review code.</p>
-
-<!----ORDERED LIST--->
-<ol>
-    <li>Create Repository</li>
-    <li>Clone it to your local machine</li>
-    <li>Make source and documentation folder</li>
-</ol>
-<h2> </h2>
-
-<!----UNORDERED LIST--->
-<ul>
-    <li>Make source and documentation folder</li> <!----UNORDERED LIST:shows in bullet forms--->
-    <ul>
-</ul>
-
-<!----DIV 1--->
-<div id="GithubUse">
-    <p>Click the README.md file.</p>
-    <p>Click the  pencil icon in the upper right corner of the file view to edit.</p>
-    <p>In the editor, write a bit about yourself.</p>
-    <p> Write a commit message that describes your changes.</p>
-    <p>Click Commit changes button.</p>
-
-
-</div>
-<!----CLICKABLE IMAGE --->
-
-<a href="https://github.com/swati2917/WEB-AND-MOBILE-PROGRAMMING/blob/master/ICP_1/documentation/Capture.JPG"><img src="https://raw.githubusercontent.com/swati2917/WEB-AND-MOBILE-PROGRAMMING/master/ICP_1/documentation/Capture.JPG" style="width:82px; height:86px" title="White flower" alt="Flower"></a>
-<br>
-<br>
-<br>
-
-<!----DIV 2--->
-<div id="Branching">
-    <p>Go to your new repository hello-world.</p>
-    <p>Click the drop down at the top of the file list that says branch: master.</p>
-    <p>Type a branch name, readme-edits, into the new branch text box.</p>
-    <p>Select the blue Create branch box or hit “Enter” on your keyboard.</p>
-
+    <script>
+        // User choice
+        var userChoice = prompt("Do you choose rock, paper or scissors?");
+        if (! userChoice) {
+            // User choice was undefined
+            document.write("<p>Player 1, you cheated! Refresh this screen and fight like a man.</p>");
+        } else {
+            // Display user choice
+            document.write("<p>Player 1:" + " " + userChoice + "</p>");
+        }
+        // Computer choice
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+        } else if(computerChoice <= 0.67) {
+            computerChoice = "paper";
+        } else {
+            computerChoice = "scissors";
+        }
+        // Display computer choice
+        document.write("<p>Computer:" + " " + computerChoice + "</p>");
+        // Compare user choice vs computer choice
+        var compare = function(choice1,choice2) {
+            if (choice1 === choice2) {
+                return "It's a tie!";
+            }
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    // rock wins
+                    return "You win!";
+                } else {
+                    // paper wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    // paper wins
+                    return "You win!";
+                } else {
+                    // scissors wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    // rock wins
+                    return "You lose! Try again.";
+                } else {
+                    // scissors wins
+                    return "You win!";
+                }
+            }
+        };
+        // Run the compare function
+        var results = compare(userChoice,computerChoice);
+        // Display results
+        document.write("<br><hr><br>" + results);
+    </script>
 
 </div>
-<!----YOUTUBE VIDEO WITH PLAY AND PAUSE OPTION --->
-<iframe width="640" height="360" src="https://www.youtube.com/embed/w3jLJU7DT5E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 </body>
 </html>
